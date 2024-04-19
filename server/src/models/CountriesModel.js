@@ -1,5 +1,4 @@
 const { DataTypes } = require('sequelize');
-const { v4: uuidv4 } = require('uuid');
 
 module.exports = (sequelize) => {
   // defino el modelo
@@ -8,7 +7,14 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING(3),
       primaryKey: true,
       allowNull: false,
-      defaultValue: () => uuidv4().substr(0, 3).toUpperCase(),
+      defaultValue: () => {
+        let code = '';
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        for (let i = 0; i < 3; i++) {
+          code += letters.charAt(Math.floor(Math.random() * letters.length));
+        }
+        return code;
+      },
     },
     name: {
       type: DataTypes.STRING,
