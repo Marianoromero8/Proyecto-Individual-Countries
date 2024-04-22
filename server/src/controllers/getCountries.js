@@ -1,6 +1,6 @@
 require ('dotenv').config();
 const {API_URL} = process.env;
-const { Countries } = require ("../db");
+const { Countries, Activities } = require ("../db");
 const axios = require("axios")
 
 const getCountries = async (req, res) => {
@@ -43,7 +43,12 @@ const getCountriesFromDB = async (req, res) => {
     try{
         await getCountries();
           
-        const countries = await Countries.findAll();
+        const countries = await Countries.findAll({
+            include: {
+            model: Activities,
+            attributes: ["name", "difficulty", "duration", "season"],
+        }
+        });
         
         res.status(200).json({countries})
     }

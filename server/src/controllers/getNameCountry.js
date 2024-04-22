@@ -1,5 +1,5 @@
 const { Op } = require("sequelize")
-const { Countries } = require("../db");
+const { Countries, Activities } = require("../db");
 
 const getByName = async (req, res) => {
     const { name } = req.query;
@@ -15,7 +15,9 @@ const getByName = async (req, res) => {
                 name: {
                 [Op.iLike]: `%${name}%`
             }
-        }
+        },
+        include: {model: Activities,
+        attributes: ["name", "difficulty", "duration", "season"]}
         })
 
         if(countriesDB.length === 0){

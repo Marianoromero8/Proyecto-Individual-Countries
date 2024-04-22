@@ -7,15 +7,13 @@ module.exports = (sequelize) => {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        validate: {
-            len: [3],
-        }
+        autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    dificulty: {
+    difficulty: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
