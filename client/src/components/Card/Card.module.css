@@ -1,0 +1,45 @@
+.card{
+    backdrop-filter: blur(10px);
+    width: 150px;
+    height: 350px;
+    margin-bottom: 25px;
+    border-color: #92977E;
+    border:  solid 1px ;
+    border-radius: 12px;
+    float: left;
+}
+
+.image{
+    border-color: #92977E;
+    border-radius: 12px;
+    height: 150px;
+    width: 150px;
+}
+
+.h1{
+    text-align: center;
+    font-size: large;
+    color: #92977E;
+    font-family: 'Times New Roman', Times, serif;
+}
+.h2{
+    text-align: center;
+    font-size: small;
+    color: #92977E;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.link{
+    color: #92977E;
+}
+
+.detail{
+    position: absolute;
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+    height: 100%;
+    width: 100%;
+    z-index: 50;
+    top: 0;
+    left: 0;
+}

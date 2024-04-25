@@ -50,7 +50,7 @@ const getCountriesFromDB = async (req, res) => {
         }
         });
         
-        res.status(200).json({countries})
+        res.status(200).json(countries)
     }
     catch(error){
         res.status(400).json({error: error.message})
