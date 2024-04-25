@@ -3,10 +3,10 @@ import Nav from '../Nav/Nav'
 import Filters from '../Filters/Filters'
 import Card from '../Card/Card'
 
-const Home = ({countries}) => {
+const Home = ({countries, onSearch}) => {
     return(
     <div>
-        <Nav/>
+        <Nav onSearch={onSearch}/>
         <Filters/>
         <div>
         {countries

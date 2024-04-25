@@ -1,4 +1,4 @@
-import {GET_ALL_COUNTRIES, GET_ALL_ACTIVITIES} from './action' 
+import {GET_ALL_COUNTRIES, GET_ALL_ACTIVITIES, GET_DETAIL, GET_BY_NAME} from './action' 
 
 const initialState = {
     inmutableCountries: [],
@@ -19,6 +19,16 @@ const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 activities: action.payload
+            }
+        case GET_DETAIL:
+            return{
+                ...state,
+                countryDetail: action.payload
+            }
+        case GET_BY_NAME:
+            return{
+                ...state,
+                countries: action.payload
             }
             default:
             return state;

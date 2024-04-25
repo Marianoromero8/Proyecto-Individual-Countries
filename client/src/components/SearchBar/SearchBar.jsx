@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({onSearch}) => {
     
   const [state, setState] = useState("");
 
@@ -17,10 +17,12 @@ const SearchBar = () => {
     setState("")
   }
     return(
+      <>
         <form onSubmit={handleClick}>
             <input value={state} placeholder='Country' onChange={handleChange} />
             <button type='submit'>Search</button>
         </form>
+      </>
     )
 }
 

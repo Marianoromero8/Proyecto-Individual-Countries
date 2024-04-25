@@ -3,7 +3,7 @@ import Home from '../Home/Home';
 import { useSelector } from 'react-redux';
 import style from './Pagination.module.css';
 
-const Pagination = () => {
+const Pagination = ({onSearch}) => {
   const allCountries = useSelector(state => state.countries);
 
     const[pagina, setPagina] = useState(1);
@@ -42,7 +42,7 @@ const Pagination = () => {
 
   return (
      <>
-      <Home pagina={pagina} porPag={porPag} countries={showCountries}/>
+      <Home pagina={pagina} porPag={porPag} countries={showCountries} onSearch={onSearch}/>
       <div className={style.div}>
       <button disabled={pagina === 1 || pagina < 1} onClick={backPage} className={style.button}>Back</button>
       <input type='number' min="1" max={max} disabled onChange={event => onChange(event)} onClick={event => onInput(event)}  name='page' value={input} autoComplete='off' readOnly className={style.input}/>

@@ -4,11 +4,15 @@ import Landing from './components/Landing/Landing';
 import Pagination from './components/Pagination/Pagination';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getAllCountries } from './redux/action';
+import { getAllCountries, getByName } from './redux/action';
 
 
 function App() {
   const dispatch = useDispatch();
+
+  const onSearch = async (name) => {
+    dispatch(getByName(name))
+  }
 
   useEffect(() => {
     dispatch(getAllCountries())
@@ -18,7 +22,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/' element={<Landing/>}/>
-        <Route path='/home' element={<Pagination/>}/>
+        <Route path='/home' element={<Pagination onSearch={onSearch}/>}/>
         <Route path='/form' element={<Form/>}/>
       </Routes>
     </div>
