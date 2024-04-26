@@ -1,7 +1,8 @@
 import './App.css';
-import {Form, Route, Routes} from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom';
 import Landing from './components/Landing/Landing';
 import Pagination from './components/Pagination/Pagination';
+import Form from './components/Form/Form'
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllCountries, getByName } from './redux/action';

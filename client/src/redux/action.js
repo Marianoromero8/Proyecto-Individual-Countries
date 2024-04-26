@@ -3,6 +3,8 @@ export const GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES";
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
 export const GET_DETAIL = "GET_DETAIL";
 export const GET_BY_NAME = "GET_BY_NAME";
+export const POST_ACTIVITY = "POST_ACTIVITY";
+export const FETCH_ERROR = "FETCH_ERROR";
 
 export const getAllCountries = () => {
     return async function(dispatch){
@@ -75,3 +77,28 @@ export const getByName = (name) => {
         }
     }
 }
+
+export const postActivity = () => {
+    return async function(dispatch){
+        try{
+            const post = await axios.post('localhost:3001/api/activities/post', payload)
+            return dispatch({
+                type: POST_ACTIVITY,
+                payload: post
+            })
+        }
+        catch(error){
+            return dispatch({
+                type: FETCH_ERROR,
+                payload: error.message
+            })
+        }
+    }
+}
+
+export const fetchError = (error) => {
+    return {
+        type: FETCH_ERROR,
+        payload: error
+    };
+};

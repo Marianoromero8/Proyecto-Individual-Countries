@@ -1,10 +1,11 @@
-import {GET_ALL_COUNTRIES, GET_ALL_ACTIVITIES, GET_DETAIL, GET_BY_NAME} from './action' 
+import {GET_ALL_COUNTRIES, GET_ALL_ACTIVITIES, GET_DETAIL, GET_BY_NAME, POST_ACTIVITY, FETCH_ERROR} from './action' 
 
 const initialState = {
     inmutableCountries: [],
     countries: [],
     activities: [],
     countryDetail: [],
+    error: null
 }
 
 const reducer = (state = initialState, action) => {
@@ -30,6 +31,16 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 countries: action.payload
             }
+        case POST_ACTIVITY:
+            return{
+                ...state,
+                activities: action.payload
+            }
+        case FETCH_ERROR:
+            return {
+                ...state,
+                error: action.payload
+                }
             default:
             return state;
     }
