@@ -5,6 +5,7 @@ export const GET_DETAIL = "GET_DETAIL";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const POST_ACTIVITY = "POST_ACTIVITY";
 export const FETCH_ERROR = "FETCH_ERROR";
+export const POST_ACTIVITY_FAIL = "POST_ACTIVITY_FAIL"
 
 export const getAllCountries = () => {
     return async function(dispatch){
@@ -78,19 +79,19 @@ export const getByName = (name) => {
     }
 }
 
-export const postActivity = () => {
+export const postActivity = (payload) => {
     return async function(dispatch){
         try{
-            const post = await axios.post('localhost:3001/api/activities/post', payload)
+            const post = await axios.post('http://localhost:3001/api/activities/post', payload)
             return dispatch({
                 type: POST_ACTIVITY,
-                payload: post
+                payload: post.data
             })
         }
         catch(error){
-            return dispatch({
-                type: FETCH_ERROR,
-                payload: error.message
+                dispatch({
+                type: POST_ACTIVITY_FAIL,
+                payload: error.response.data
             })
         }
     }

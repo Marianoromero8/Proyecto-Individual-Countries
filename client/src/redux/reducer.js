@@ -1,4 +1,4 @@
-import {GET_ALL_COUNTRIES, GET_ALL_ACTIVITIES, GET_DETAIL, GET_BY_NAME, POST_ACTIVITY, FETCH_ERROR} from './action' 
+import {GET_ALL_COUNTRIES, GET_ALL_ACTIVITIES, GET_DETAIL, GET_BY_NAME, POST_ACTIVITY, FETCH_ERROR, POST_ACTIVITY_FAIL} from './action' 
 
 const initialState = {
     inmutableCountries: [],
@@ -35,6 +35,11 @@ const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 activities: action.payload
+            }
+        case POST_ACTIVITY_FAIL:
+            return{
+                ...state,
+                error: action.payload
             }
         case FETCH_ERROR:
             return {

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import style from './Form.module.css'
+import validations from './validations'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getAllCountries, postActivity } from "../../redux/action";
-import validations from './validations'
 
 
 const Form = () => {
@@ -18,29 +18,32 @@ const Form = () => {
   
     const[errors, setErrors] = useState({
       name: "",
-      difficulty: "", 
+      difficulty: "",
+      duration: "", 
       season: "",
       countries: []
     })
     const [form, setForm] = useState({
         name: "",
-        difficulty: "", 
+        difficulty: "",
+        duration: "",  
         season: "",
         countries: []
     })
     
     useEffect(() => {
       setErrors(validations(form))
-    }, [form.name, form.difficulty, form.season, form.countries])
+    }, [form.name, form.difficulty, form.duration, form.season, form.countries])
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      if (form.name && form.difficulty && form.season && form.countries > 0
+      if (form.name && form.difficulty && form.duration && form.season && form.countries.length > 0
       ) {
         dispatch(postActivity(form));
         setForm({
             name: "",
             difficulty: "", 
+            duration: "", 
             season: "",
             countries: []
         });
@@ -53,7 +56,7 @@ const Form = () => {
     const handleAdd = (event) => {
       const {name, value} = event.target;
   
-      if(!form.countries.includes(value) && form.countries.length < 5) {
+      if(!form.countries.includes(value) && form.countries.length < 7) {
         setForm({
           ...form,
           countries: [...form.countries, value]
@@ -72,8 +75,8 @@ const Form = () => {
       })
     }
   
-    const handleChange = (e) => {
-      const {name, value} = e.target
+    const handleChange = (event) => {
+      const {name, value} = event.target
   
       setForm({
         ...form,
@@ -81,11 +84,11 @@ const Form = () => {
       })
     }
 
-    const handleChangeSeason = (e) => {
-        setSelectedSeason(e.target.value);
+    const handleChangeSeason = (event) => {
+        setSelectedSeason(event.target.value);
         setForm({
           ...form,
-          season: e.target.value 
+          season: event.target.value 
         });
       }
 
@@ -97,44 +100,59 @@ const Form = () => {
 
         <h1>Create an Activity</h1>
 
-        <div onChange={handleChange}>
-            <label htmlFor="name" className={style.label}>Name Activity</label>
-            <input type="text" name="name" placeholder="Activity" value={form.name} onChange={handleChange} className={style.input}/>
+        <div onChange={handleChange} >
+            <label htmlFor="name" className={style.label}>Name Activity: </label>
+            <input type="text" name="name" placeholder="Activity" value={form.name} onChange={handleChange}  className={style.input}/>
+          {errors.name && <p className={style.errors}>{errors.name}</p>}
         </div>
 
         <div onChange={handleChange}>
-            <label htmlFor="difficulty" name="difficulty" className={style.label}>Difficulty</label>
-            <input type="range" min={1} max={5} className={style.range}/>
+            <label htmlFor="difficulty" className={style.label}>Difficulty: </label>
+            <input type="number" name="difficulty" value={form.difficulty} className={style.input} onChange={handleChange}/>
+            {errors.difficulty && <p className={style.errors}>{errors.difficulty}</p>}
+        </div>
+
+        <div onChange={handleChange}>
+            <label htmlFor="duration" name="duration" className={style.label}>Duration: </label>
+            <input type="number" name="duration" value={form.duration} className={style.input} onChange={handleChange}/>
+            <p>hs</p>
+            {errors.duration && <p className={style.errors}>{errors.duration}</p>}
+        </div>
+
+        <div onChange={handleChange}>
+            <label htmlFor="season" name="season" className={style.label}>Season</label>
+            <select type="text" name="season" className={style.select} value={form.season} onChange={handleChangeSeason}>
+                <option value="none">Select Season</option>
+                <option value="Summer">Summer</option>
+                <option value="Autumn">Autumn</option>
+                <option value="Winter">Winter</option>
+                <option value="Spring">Spring</option>
+            </select>
+            {errors.season && <p className={style.errors}>{errors.season}</p>}
         </div>
 
         <div>
-            <label htmlFor="season" name="season" className={style.label}>Season</label>
-            <select type="text" className={style.select} value={selectedSeason} onChange={handleChangeSeason}>
-                <option value="summer">Select Season</option>
-                <option value="summer">Summer</option>
-                <option value="autumn">Autumn</option>
-                <option value="winter">Winter</option>
-                <option value="spring">Spring</option>
-            </select>
-        </div>
-
-        <div onChange={handleChange}>
             <label htmlFor="countries" name="countries" className={style.label}>Countries where you can do this activity</label>
-            <select onChange={handleAdd} disabled={form.countries.length === 7} name="countries" id="countries">
+            <select onChange={handleAdd} disabled={form.countries.length === 7} name="countries" >
             {allCountries.map((coun) => 
                 <option key={coun.id} value={coun.name} className={style.option}>{coun.name}</option>)}
             </select>
             <small>Minimun 1 country</small>
-            {form.countries.map((coun, i) => (
-                <div>
+            {Array.isArray(form.countries) && form.countries.map((coun, i) => (
+                <div key={i} className={style.tag}>
                     <span className={style.span}>{coun}</span>
                     <button className={style.buttonTag} type="button" onClick={() => handleRemove(i)}>X</button>
                 </div>
             ))}
+          {errors.countries && <p className={style.errors}>{errors.countries}</p>}
         </div>
 
         <button type="submit" className={style.submit}>Create Activity</button>
         </form>
+        <div>
+          <button onClick={() => {navigate("/home")}} className={style.backHome}>Back Home</button>
+        </div>
+
         </div>
         </>
     )
