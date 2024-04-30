@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
         allowNull: false,
         validate: {
             min: 1,
-            max: 168
+            max: 48
         }
     },
     season: {
