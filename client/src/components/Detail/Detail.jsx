@@ -30,7 +30,7 @@ const Detail = ({id, toggelModal}) => {
             <h2 className={style.h2}>Population: {detail.population}</h2>
         </div>
 
-        <button onClick={toggelModal} className={style.back}></button>
+        <button onClick={toggelModal} className={style.back}>Back</button>
 
         </div>
         </>

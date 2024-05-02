@@ -5,7 +5,13 @@ export const GET_DETAIL = "GET_DETAIL";
 export const GET_BY_NAME = "GET_BY_NAME";
 export const POST_ACTIVITY = "POST_ACTIVITY";
 export const FETCH_ERROR = "FETCH_ERROR";
-export const POST_ACTIVITY_FAIL = "POST_ACTIVITY_FAIL"
+export const POST_ACTIVITY_FAIL = "POST_ACTIVITY_FAIL";
+export const FILTER_CONTINENT = "FILTER_CONTINENT";
+export const FILTER_ACTIVITIES = "FILTER_ACTIVITIES";
+export const ORDER_ASC_POPULATION = "ORDER_ASC_POPULATION";
+export const ORDER_DESC_POPULATION = "ORDER_DESC_POPULATION";
+export const ORDER_AZ = "ORDER_AZ";
+export const ORDER_ZA = "ORDER_ZA"
 
 export const getAllCountries = () => {
     return async function(dispatch){
@@ -94,6 +100,44 @@ export const postActivity = (payload) => {
                 payload: error.response.data
             })
         }
+    }
+}
+
+export const filterContinent = (filter) => {
+    return{
+        type: FILTER_CONTINENT,
+        payload: filter
+    }
+}
+
+export const activityFilter = (filter) => {
+    return{
+    type: FILTER_ACTIVITIES,
+    payload: filter
+    }
+}
+
+export const orderDescendente = () => {
+    return{
+        type: ORDER_DESC_POPULATION,
+    }
+}
+
+export const orderAscendente = () => {
+    return{
+        type: ORDER_ASC_POPULATION,
+    }
+}
+
+export const orderAZ = () => {
+    return{
+        type: ORDER_AZ
+    }
+}
+
+export const orderZA = () => {
+    return{
+        type:ORDER_ZA
     }
 }
 

@@ -1,4 +1,4 @@
-import {GET_ALL_COUNTRIES, GET_ALL_ACTIVITIES, GET_DETAIL, GET_BY_NAME, POST_ACTIVITY, FETCH_ERROR, POST_ACTIVITY_FAIL} from './action' 
+import {GET_ALL_COUNTRIES, GET_ALL_ACTIVITIES, GET_DETAIL, GET_BY_NAME, POST_ACTIVITY, FETCH_ERROR, POST_ACTIVITY_FAIL, FILTER_CONTINENT, FILTER_ACTIVITIES,ORDER_ASC_POPULATION, ORDER_DESC_POPULATION, ORDER_AZ, ORDER_ZA} from './action' 
 
 const initialState = {
     inmutableCountries: [],
@@ -46,7 +46,54 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 error: action.payload
                 }
-            default:
+        case FILTER_CONTINENT:
+            const filtContinent = state.inmutableCountries.filter(cont => cont.continent === action.payload)
+            return {
+                ...state,
+                countries: filtContinent
+            }
+        case FILTER_ACTIVITIES:
+            if(action.payload === "All"){
+                return{
+                    ...state,
+                    countries: [...state.inmutableCountries]
+                }
+            }
+            const filActivities = state.activities.filter(count => count.name.countries === action.payload.name)
+            console.log(filActivities)
+            return{
+                ...state,
+                countries: filActivities
+            }
+        case ORDER_ASC_POPULATION:
+            const orderAscPopulation = [...state.inmutableCountries].sort((a, b) => {
+                return a.population - b.population
+            })
+            return{
+                ...state,
+                countries: orderAscPopulation
+            }
+        case ORDER_DESC_POPULATION:
+            const orderDescPopulation = [...state.inmutableCountries].sort((a, b) => {
+                return b.population - a.population
+            })
+            return{
+                ...state,
+                countries: orderDescPopulation
+            }
+        case ORDER_AZ:
+            const orderAZ = [...state.inmutableCountries].sort((a, b) => a.name.localeCompare(b.name))
+            return{
+                ...state,
+                countries: orderAZ
+            }
+        case ORDER_ZA:
+            const orderZA = [...state.inmutableCountries].sort((a, b) => b.name.localeCompare(a.name))
+            return{
+                ...state,
+                countries: orderZA    
+            }
+        default:
             return state;
     }
 }
