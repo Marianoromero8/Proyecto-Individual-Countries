@@ -10,7 +10,7 @@ const getActivities = async (req, res) => {
         }
     })
 
-    return res.status(200).json({allActivities})
+    return res.status(200).json(allActivities)
 
     }
     catch(error){
