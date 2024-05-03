@@ -5,9 +5,14 @@ import { useNavigate } from 'react-router-dom';
 const Landing = () => {
   const navigate = useNavigate();
   return (
-    <div>
-      <p>Welcome to Countries Web Site</p>
-      <button onClick={() => {navigate('/home')}}>ENTER</button>
+    <div className={style.divLanding}>
+      <div className={style.divImg}>
+        <img src="/coffemap.jpeg" alt="" className={style.img}/>
+      </div>
+      <div className={style.divEnter}>
+      <h1>Welcome to Countries Web Site</h1>
+      <button onClick={() => {navigate('/home')}} className={style.button}>ENTER</button>
+      </div>
     </div>
   )
 }

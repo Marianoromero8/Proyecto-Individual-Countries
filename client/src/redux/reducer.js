@@ -34,7 +34,7 @@ const reducer = (state = initialState, action) => {
         case POST_ACTIVITY:
             return{
                 ...state,
-                activities: action.payload
+                activities: [...state.activities, action.payload]
             }
         case POST_ACTIVITY_FAIL:
             return{

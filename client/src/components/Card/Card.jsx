@@ -13,7 +13,7 @@ const Card = ({coun}) => {
             <h1 className={style.h1}>Country: {coun.name}</h1>
             <h2 className={style.h2}>Continent: {coun.continent}</h2>
         </div>
-        {modal && <div>
+        {modal && <div className={style.detail}>
          <Detail id={coun.id} toggelModal={toggelModal}/>   
         </div>}
         </div>

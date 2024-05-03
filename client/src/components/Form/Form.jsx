@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getAllCountries, postActivity } from "../../redux/action";
 
-
 const Form = () => {
     const [selectedSeason, setSelectedSeason] = useState("");
     const allCountries = useSelector(state => state.countries)
@@ -13,7 +12,7 @@ const Form = () => {
     const dispatch = useDispatch()
   
     useEffect(() => {
-      dispatch(getAllCountries(allCountries))
+      dispatch(getAllCountries())
     },[])
   
     const[errors, setErrors] = useState({

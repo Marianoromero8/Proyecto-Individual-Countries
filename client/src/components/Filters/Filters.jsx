@@ -36,7 +36,7 @@ const Filters = () => {
             dispatch(orderZA(allCountries))
         }
     }
-
+    console.log(allActivities)
     return(
         <div className={style.div}>
             <section>

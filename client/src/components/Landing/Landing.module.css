@@ -1,0 +1,44 @@
+.divLanding{
+    color: white;
+    display: flex;
+    align-items: center;    
+    height: 100vh;
+    width: 100%;
+    max-height: 100%;
+}
+
+.divImg{
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+    max-height: 100%;
+}
+
+.img{
+    width: 100%;
+    object-fit: cover;
+    max-height: 100%;
+}
+
+.divEnter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: #BB6B00;
+}
+
+.button{
+    color: #BB6B00;
+    background-color: #690500;
+    transition: all .3s;
+    border: 1px transparent;
+}
+
+.button:hover{
+    color: #690500;
+    background-color: #BB6B00;
+    cursor: pointer;
+    border: #BB6B00;
+}
