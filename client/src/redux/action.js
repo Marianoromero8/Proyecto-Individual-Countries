@@ -89,16 +89,18 @@ export const postActivity = (payload) => {
     return async function(dispatch){
         try{
             const post = await axios.post('http://localhost:3001/api/activities/post', payload)
-            return dispatch({
+            dispatch({
                 type: POST_ACTIVITY,
                 payload: post.data
             })
+            return post
         }
         catch(error){
                 dispatch({
                 type: POST_ACTIVITY_FAIL,
                 payload: error.response.data
             })
+            throw error;
         }
     }
 }

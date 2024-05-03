@@ -60,7 +60,6 @@ const reducer = (state = initialState, action) => {
                 }
             }
             const filActivities = state.inmutableCountries.filter(count => count.activities.some(act => act.name === action.payload))
-            console.log(filActivities)
             return{
                 ...state,
                 countries: filActivities

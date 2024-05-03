@@ -39,6 +39,7 @@ const Form = () => {
       if (form.name && form.difficulty && form.duration && form.season && form.countries.length > 0
       ) {
         dispatch(postActivity(form));
+        dispatch(getAllCountries())
         setForm({
             name: "",
             difficulty: "", 
