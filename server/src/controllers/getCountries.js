@@ -28,11 +28,14 @@ const getCountries = async (req, res) => {
                 population
             }
         })
-        
-        const filterCountriesFromApi = [...new Set(countriesFromApi)]
-        const countriesOrders = filterCountriesFromApi.sort();
 
-        await Countries.bulkCreate(countriesOrders, {ignoreDuplicates: true})
+        const countriesCreated = await Countries.findAll({
+            attributes: ["name"]
+        });
+
+        const countries = countriesFromApi.filter(coun => !countriesCreated.some(country => country.name === coun.name))
+
+        await Countries.bulkCreate(countries)
     }
     catch(error){
         throw new Error (error.message)
