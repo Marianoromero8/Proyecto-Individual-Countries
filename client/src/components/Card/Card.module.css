@@ -37,6 +37,8 @@
     position: absolute;
     background-color: transparent;
     backdrop-filter: blur(10px);
+    display: grid;
+    place-items: center;
     height: 100%;
     width: 100%;
     z-index: 50;

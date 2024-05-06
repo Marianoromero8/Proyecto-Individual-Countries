@@ -41,7 +41,7 @@ const Pagination = ({onSearch}) => {
     }
 
   return (
-     <>
+     <div className={style.pagination}>
       <Home pagina={pagina} porPag={porPag} countries={showCountries} onSearch={onSearch}/>
       <div className={style.div}>
       <button disabled={pagina === 1 || pagina < 1} onClick={backPage} className={style.button}>Back</button>
@@ -49,7 +49,7 @@ const Pagination = ({onSearch}) => {
       <button disabled={pagina === Math.ceil(max) || pagina > max} onClick={nextPage} className={style.button}>Next</button>
       <p className={style.p}>de {max}</p>
       </div>
-    </>
+    </div>
   )
 }
 

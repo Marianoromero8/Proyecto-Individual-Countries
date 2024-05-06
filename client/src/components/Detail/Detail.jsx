@@ -19,7 +19,7 @@ const Detail = ({id, toggelModal}) => {
             <img src={detail.flags} alt={detail.flags} />
         </div>
 
-        <div>
+        <div className={style.content}>
             <h1 className={style.h1}>Country: {detail.name}</h1>
             <h2 className={style.h2}>ID: {detail.id}</h2>
             <h2 className={style.h2}>Continent: {detail.continent}</h2>

@@ -1,0 +1,13 @@
+.button{
+    color: #BB6B00;
+    background-color: #690500;
+    transition: all .3s;
+    border: 1px transparent;
+}
+
+.button:hover{
+    color: #690500;
+    background-color: #BB6B00;
+    cursor: pointer;
+    border: #BB6B00;
+}

@@ -1,33 +1,40 @@
 .div{
-    color: #E6E18F;
-    flex: content;
-    padding-right: 100px;
+    color: #690500;
+    display: flex;
+    align-items: center;
     text-align: left;
-    margin-left: 15px;
     font-size: smaller;
+    margin: auto;
+    gap: 10px;
+    width: 90%;
 }
 
 .image{
-    width: 300px;
-    height: 300px;
-    border-radius: 20px;
-    border: solid #E6E18F;
+    align-items: center;
+    border-radius: 9px;
+    border: solid #690500;
     float: left;
 }
 
 .back{
-    color: #E6E18F;
+    color: #690500;
     background-color: transparent;
     backdrop-filter: blur(10px);
     border: solid 1px;
-    border-color: #E6E18F;
+    border-color: #690500;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .back:hover{
     color: #92977E;
-    background-color: #E6E18F;
+    background-color: #690500;
     border-color: #293F14;
     cursor: pointer;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+
 }
