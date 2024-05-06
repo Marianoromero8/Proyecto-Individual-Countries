@@ -18,7 +18,6 @@ const Filters = () => {
 
     const handleActivities = (event) => {
         dispatch(activityFilter(event.target.value))
-        console.log(event.target.value)
     }
 
     const handlePopulation = (event) => {

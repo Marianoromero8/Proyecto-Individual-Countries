@@ -92,7 +92,6 @@ const Form = () => {
         });
       }
 
-
     return(
         <>
         <div className={style.divForm}>

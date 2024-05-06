@@ -11,7 +11,6 @@ const Detail = ({id, toggelModal}) => {
         dispatch(getDetail(id))
     }, [])
     
-
     return detail ? (
         <>
         <div className={style.div}>
