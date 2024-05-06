@@ -9,6 +9,7 @@ const Nav = ({onSearch}) => {
       <span>Countries Api</span>
       <SearchBar onSearch={onSearch}/>
       <button onClick={() => {navigate('/form')}}>Create Activity</button>
+      <button onClick={() => {navigate('/home')}}>Refresh</button>
     </div>
   )
 }

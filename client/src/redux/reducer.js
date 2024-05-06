@@ -65,7 +65,7 @@ const reducer = (state = initialState, action) => {
                 countries: filActivities
             }
         case ORDER_ASC_POPULATION:
-            const orderAscPopulation = [...state.inmutableCountries].sort((a, b) => {
+            const orderAscPopulation = [...state.countries].sort((a, b) => {
                 return a.population - b.population
             })
             return{
@@ -73,7 +73,7 @@ const reducer = (state = initialState, action) => {
                 countries: orderAscPopulation
             }
         case ORDER_DESC_POPULATION:
-            const orderDescPopulation = [...state.inmutableCountries].sort((a, b) => {
+            const orderDescPopulation = [...state.countries].sort((a, b) => {
                 return b.population - a.population
             })
             return{
@@ -81,13 +81,13 @@ const reducer = (state = initialState, action) => {
                 countries: orderDescPopulation
             }
         case ORDER_AZ:
-            const orderAZ = [...state.inmutableCountries].sort((a, b) => a.name.localeCompare(b.name))
+            const orderAZ = [...state.countries].sort((a, b) => a.name.localeCompare(b.name))
             return{
                 ...state,
                 countries: orderAZ
             }
         case ORDER_ZA:
-            const orderZA = [...state.inmutableCountries].sort((a, b) => b.name.localeCompare(a.name))
+            const orderZA = [...state.countries].sort((a, b) => b.name.localeCompare(a.name))
             return{
                 ...state,
                 countries: orderZA    
