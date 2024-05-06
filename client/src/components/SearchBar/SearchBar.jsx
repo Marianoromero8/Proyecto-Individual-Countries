@@ -20,7 +20,7 @@ const SearchBar = ({onSearch}) => {
     return(
       <>
         <form onSubmit={handleClick}>
-            <input value={state} placeholder='Country' onChange={handleChange} />
+            <input value={state} placeholder='Country' onChange={handleChange} className={style.input}/>
             <button type='submit' className={style.button}>Search</button>
         </form>
       </>

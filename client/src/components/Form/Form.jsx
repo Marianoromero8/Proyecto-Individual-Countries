@@ -132,9 +132,9 @@ const Form = () => {
 
         <div>
             <label htmlFor="countries" name="countries" className={style.label}>Countries where you can do this activity</label>
-            <select onChange={handleAdd} disabled={form.countries.length === 7} name="countries" >
+            <select onChange={handleAdd} disabled={form.countries.length === 7} name="countries" className={style.select}>
             {allCountries.map((coun) => 
-                <option key={coun.id} value={coun.name} className={style.option}>{coun.name}</option>)}
+                <option key={coun.id} value={coun.name} className={style.select}>{coun.name}</option>)}
             </select>
             <small>Minimun 1 country</small>
             {Array.isArray(form.countries) && form.countries.map((coun, i) => (
@@ -146,10 +146,10 @@ const Form = () => {
           {errors.countries && <p className={style.errors}>{errors.countries}</p>}
         </div>
 
-        <button type="submit" className={style.submit}>Create Activity</button>
+        <button type="submit" className={style.button}>Create Activity</button>
         </form>
         <div>
-          <button onClick={() => {navigate("/home")}} className={style.backHome}>Back Home</button>
+          <button onClick={() => {navigate("/home")}} className={style.button}>Back Home</button>
         </div>
 
         </div>

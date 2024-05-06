@@ -1,5 +1,10 @@
+.divFrom{
+    display: flex;
+    align-items: center;
+}
+
 .form{
-    color: #92977E;
+    color: #BB6B00;
     background-color: transparent;
     backdrop-filter: blur(10px);
     border: 1px solid;
@@ -23,7 +28,7 @@
 }
 
 .buttonTag{
-    color: #92977E;
+    color: #BB6B00;
     background-color: transparent;
     backdrop-filter: blur(10px);
     border: none;
@@ -32,8 +37,8 @@
 }
 
 .select{
-    color: grey;
-    background-color: transparent;
+    color: #BB6B00;
+    background-color: #690500;
     backdrop-filter: blur(10px);
 }
 
@@ -49,40 +54,18 @@
     backdrop-filter: blur(10px)
 }
 
-.backHome{
-    color: #92977E;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-    border: solid 1px;
-    border-color: #92977E;
-    border-radius: 5px;
-    cursor: pointer;
+.button{
+    color: #BB6B00;
+    background-color: #690500;
+    transition: all .3s;
+    border: 1px transparent;
 }
 
-.backHome:hover{
-    color: #293F14;
-    background-color: #92977E;
-    border-color: #293F14;
+.button:hover{
+    color: #690500;
+    background-color: #BB6B00;
     cursor: pointer;
-}
-
-.submit{
-    color: #92977E;
-    width: 150px;
-    height: 50px;
-    background-color: transparent;
-    backdrop-filter: blur(10px);
-    border: solid 1px;
-    border-color: #92977E;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.submit:hover{
-    color: #293F14;
-    background-color: #92977E;
-    border-color: #293F14;
-    cursor: pointer;
+    border: #BB6B00;
 }
 
 .errors{
