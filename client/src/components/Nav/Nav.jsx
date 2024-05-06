@@ -10,7 +10,6 @@ const Nav = ({onSearch}) => {
       <span className={style.name}>Countries Api</span>
       <SearchBar onSearch={onSearch}/>
       <button onClick={() => {navigate('/form')}} className={style.button}>Create Activity</button>
-      <button onClick={() => {navigate('/home')}} className={style.button}>Refresh</button>
     </div>
   )
 }
